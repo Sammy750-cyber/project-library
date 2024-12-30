@@ -1,0 +1,607 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --background-color: darkslategrey;
+  --font-size: ;
+  --color-: ;
+  --background-black: black;
+  --dark-slate-grey: darkslategrey;
+}
+
+body {
+  background: var(--dark-slate-grey);
+}
+
+body::-webkit-scrollbar {
+  width: 3px;
+}
+
+.flex {
+  display: flex;
+}
+
+main {
+  width: 100%;
+  background: var(--background-color);
+  height: 100vh;
+}
+
+header {
+  background: rgb(14, 13, 13);
+  color: white;
+  padding: 1rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  position: sticky;
+  top: 0;
+  --webkit-sticky: sticky;
+  z-index: 2000;
+  max-height: 2rem;
+}
+
+header > h1 {
+  font-family: cursive;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+header > div > button {
+  padding: 0.2rem;
+  border: none;
+  font-size: 1rem;
+  background: black;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  color: darkslategray;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+header > button > i {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* side nav and drop down form */
+
+.project-lib-cont {
+  position: relative;
+  height: 92%;
+}
+
+.project-lib-cont .notification {
+  position: absolute;
+  z-index: 509000;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid green;
+  max-height: 2rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  transform: scale(0);
+  background: black;
+  color: green;
+  transition: transform 0.2s ease;
+}
+
+.notification.show {
+  transform: scale(1) translateX(-50%);
+}
+
+.project-lib-cont .notification .notification-texts {
+  text-align: center;
+}
+
+.project-lib-cont .preview-lightbox {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 3000;
+  background: rgba(0, 0, 0, 0.5);
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+
+.preview-lightbox.show {
+  display: block;
+  transform: scale(1);
+}
+
+.preview-lightbox.hide {
+  transform: scale(0);
+}
+
+.project-lib-cont .preview-lightbox .preview-cont {
+  display: none;
+  position: absolute;
+  background: rgb(19, 19, 19);
+  color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem .8rem;
+  border: 2px solid red;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 300px;
+  /* height: 70%; */
+}
+
+.preview-cont .header {
+  justify-content: space-between;
+  padding: 5px 2px;
+  border-bottom: 2px solid grey;
+}
+
+.preview-cont .header h1 {
+  font-family: cursive;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.preview-cont .header button {
+  background: transparent;
+  color: red;
+  font-size: 1rem;
+  border: none;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.preview-cont .p-title {
+  text-align: center;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  padding: 1rem 0.3px;
+  border-bottom: 2px solid grey;
+  overflow: hidden;
+}
+
+.preview-cont .desc {
+  /* border: 1px solid green; */
+  margin: 0.8rem auto;
+  width: 90%;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  background: rgb(32, 32, 32);
+  color: gray;
+  height: 16rem;
+  overflow-y: scroll;
+}
+
+.preview-cont .desc::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+}
+
+.preview-cont .desc:hover::-webkit-scrollbar {
+  background: transparent;
+  width: 3px;
+}
+
+/* .preview-cont .desc:hover::-webkit-scrollbar-button{
+  background: transparent;
+} */
+
+.preview-cont .desc:hover::-webkit-scrollbar-thumb {
+  width: 3px;
+  background-color: var(--med-grey);
+}
+
+.preview-cont .logic {
+  border-top: 2px solid grey;
+  margin-top: 1rem;
+  padding: 1rem 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 2px solid grey;
+}
+
+.preview-cont .logic h4 {
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: cursive;
+}
+
+.preview-cont .logic h4 span {
+  font-size: 0.8rem;
+}
+
+.preview-cont .actions {
+  justify-content: space-between;
+  margin: 1rem 0rem .5rem 0rem;
+}
+
+.preview-cont .actions .p-time {
+  color: white;
+  font-family: cursive;
+  font-size: .8rem;
+  font-weight: 300;
+}
+
+.preview-cont .actions div {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.preview-cont .actions div button {
+  background: transparent;
+  font-size: 0.7rem;
+  color: red;
+  border: none;
+  cursor: pointer;
+  /* padding: 0; */
+}
+
+/* new project from starts */
+
+.preview-lightbox .lightbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3000;
+  color: white;
+  width: 80%;
+  max-width: 300px;
+  display: none;
+}
+
+.preview-lightbox .lightbox.show {
+  transform: scale(1);
+}
+
+.preview-lightbox .lightbox .new-project-form {
+  background: rgb(19, 19, 19);
+  color: white;
+  padding: 1rem .8rem;
+  border-radius: 0.5rem;
+}
+
+.preview-lightbox .lightbox .new-project-form .header {
+  justify-content: space-between;
+  padding: 0.5rem 5px;
+  border-bottom: 2px solid grey;
+}
+
+.preview-lightbox .lightbox .new-project-form .header h1 {
+  font-family: cursive;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.preview-lightbox .lightbox .new-project-form .header button {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 1rem;
+  color: red;
+  font-weight: 300;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.preview-lightbox .lightbox .new-project-form form {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.preview-lightbox .lightbox .new-project-form form label {
+  text-align: initial;
+}
+
+.preview-lightbox .lightbox .new-project-form form input,
+.preview-lightbox .lightbox .new-project-form form textarea {
+  width: 95%;
+  margin: auto;
+  padding: 0.5rem 0.3rem;
+  outline: none;
+  border: none;
+  background: rgb(32, 32, 32);
+  border-radius: 3px;
+  color: grey;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-style: 0.8rem;
+}
+.preview-lightbox .lightbox .new-project-form form input:focus,
+.preview-lightbox .lightbox .new-project-form form textarea:focus {
+  color: white;
+}
+.preview-lightbox .lightbox .new-project-form form textarea {
+  height: 5rem;
+}
+
+.preview-lightbox .lightbox .new-project-form form textarea::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+}
+.preview-lightbox
+  .lightbox
+  .new-project-form
+  form
+  textarea:hover::-webkit-scrollbar {
+  width: 3px;
+}
+.preview-lightbox
+  .lightbox
+  .new-project-form
+  form
+  textarea:hover::-webkit-scrollbar-thumb {
+  background: rgb(73, 17, 17);
+  width: 3px;
+  border-radius: 5px;
+}
+
+.preview-lightbox .lightbox .new-project-form form button {
+  width: 95%;
+  background: blue;
+  border: none;
+  padding: 0.5rem 0.3rem;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  outline: none;
+  transition: opacity .2s ease-in-out;
+}
+
+.preview-lightbox .lightbox .new-project-form form button:hover{
+  opacity: .7;
+}
+
+.preview-lightbox .lightbox .new-project-form form h2 {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: cursive;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid grey;
+}
+
+.preview-lightbox .lightbox .new-project-form form .progress {
+  color: white;
+  /* background: red; */
+  margin: 1rem 0;
+}
+
+.preview-lightbox .lightbox .new-project-form form .progress select {
+  background: rgb(32, 32, 32);
+  color: rgb(85, 82, 82);
+  padding: 0.4rem 0.3rem;
+  border: none;
+  outline: none;
+}
+
+/* new projects form ends here */
+
+/* it ends here */
+
+.projects {
+  /* margin: 0px 10px; */
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, 265px);
+  overflow-y: scroll;
+  padding: 1rem 0rem;
+  justify-content: center;
+  width: 100%;
+  /* height: max-content; */
+}
+
+.projects::-webkit-scrollbar {
+  background: transparent;
+  width: 0px;
+}
+
+.projects:hover::-webkit-scrollbar {
+  width: 3px;
+}
+
+.projects:hover::-webkit-scrollbar-thumb {
+  /* background-color: white; */
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 3px;
+  border: 15px;
+}
+
+.new {
+  color: darkslategray;
+}
+
+.projects li {
+  height: 250px;
+  list-style: none;
+  border-radius: 5px;
+  padding: 15px 20px 20px;
+  background: var(--background-black);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.projects .add-box .tag {
+  background-color: red;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.projects .add-box .center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+}
+
+.projects .add-box .center .icon {
+  width: fit-content;
+  margin: auto;
+  font-size: 3rem;
+  font-weight: 400;
+  padding: 0.2rem;
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
+  border-radius: 50%;
+  align-content: center;
+  border: 2px solid var(--dark-slate-grey);
+  border-style: dashed;
+}
+
+.projects .add-box .center h2 {
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 0.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.projects .add-box #project-name {
+  font-weight: 700;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  overflow: hidden;
+  height: 1.2rem;
+  cursor: pointer;
+  color: var(--dark-slate-grey);
+}
+
+.projects .add-box .desc {
+  margin: 0.5rem 0rem;
+  overflow-y: scroll;
+  height: 69%;
+  border-bottom: 1px solid var(--med-grey);
+  color: var(--dark-slate-grey);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+.projects .add-box .desc::-webkit-scrollbar {
+  width: 0;
+}
+
+.projects .add-box .desc:hover::-webkit-scrollbar {
+  background: transparent;
+  width: 3px;
+}
+
+.projects .add-box .desc:hover::-webkit-scrollbar-thumb {
+  background: var(--med-grey);
+  border-radius: 3px;
+}
+
+.projects .add-box .time-cont {
+  justify-content: space-between;
+  padding: 0.7rem 0rem;
+  /* background-color: aliceblue; */
+}
+
+.projects .add-box .time-cont p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: var(--dark-slate-grey);
+}
+
+.projects .add-box .time-cont .settings {
+  position: relative;
+}
+
+.projects .add-box .time-cont .settings i {
+  color: darkslategray;
+}
+
+.projects .add-box .time-cont .settings button {
+  background: transparent;
+  color: black;
+  border: none;
+  outline: none;
+}
+
+.projects .add-box .time-cont .settings > button {
+  font-size: 1rem;
+}
+
+.projects .add-box .time-cont .settings .actions {
+  /* background: red; */
+  z-index: 1;
+  bottom: 0;
+  right: -5px;
+  border-radius: 0.2rem;
+  background-color: var(--dark-slate-grey);
+  box-shadow: 1px 2px 12px 3px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  transform: scale(0);
+  transform-origin: bottom right;
+  transition: transform 0.2s ease;
+  width: fit-content;
+}
+
+.projects .add-box .time-cont .settings .actions button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 5rem;
+}
+
+.projects .add-box .time-cont .settings .actions button:hover {
+  background: var(--background-black);
+  color: var(--dark-slate-grey);
+}
+
+.projects .add-box .time-cont .settings.show .actions {
+  transform: scale(1);
+}
+
+@media (max-width: 432px) {
+  .wrapper {
+    margin: 15px;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+
+  .popup-box .popup {
+    max-width: calc(100% - 15px);
+  }
+
+  .bottom-content .settings i {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 800px) {
+  .wrapper {
+    margin: 15px;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+
+  .popup-box .popup {
+    max-width: calc(100% - 15px);
+  }
+
+  .bottom-content .settings i {
+    font-size: 17px;
+  }
+
+  .projects {
+    gap: 3rem;
+    height: 92%;
+  }
+}
