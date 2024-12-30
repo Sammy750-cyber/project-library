@@ -1,20 +1,21 @@
-<h1 align="center">PROJECT LIBRARY</h1>
+<h1 align="center">PROJECT LIBARY</h1>
 
-![Project Library Main Page](images/finalResult.png)
+<image src="images/finalResult.PNG" alt="project library main page">
 
-## Description
+<h2><i>Description</i></h2>
 
-This is a simple project library made with the intention of helping developers like me. This enables you to document your planned project and record the states as you build on those projects. It supports full documentation of what your project might be built on.
+<p> This is a simple project library made with the intention of helping developers like me. This enables you to document your planned project and record the states as you build pn those projects, it supports full documentations of what your project might be built on.</p>
 
-This is just the beginning of the project; not much has been done yet. Updates will be coming soon.
+<p> This is just the begining of the project, not much has been done it though!,.
+Updates will be coming soon.</p> 
 
-## Preview
+<h2>PREVIEW</h2>
 
-![New Project Form](images/addNewProject.png)
-![Project Library Main Page](images/previewProject.png)
+<image src="images/addNewProject.PNG" alt="New Project form">
+<hr><br>
+<image src="images/previewProject.PNG" alt="project library main page">
 
-*Feel free to improve on this project, and if you love and really appreciate this project, can I get a follow?*
-
----
+<p><i>Feel free to improve on this project, and if you love and really apprecite this project, can i get a follow.</i><p>
+<hr>
 
 <h1>Coding Is Life</h1>
